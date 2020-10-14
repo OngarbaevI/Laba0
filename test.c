@@ -13,8 +13,10 @@ int main(int argc, char* argv[])
           perror("fork");   // произошла ошибка 
           exit(1);  //выход из родительского процесса
   case 0:
-          printf("CHILD: Это процесс - потомок!\n");    // Это код потомка
-          exit(0);
+      printf(" CHILD: Это процесс-потомок!\n"); // код потомка
+			printf(" CHILD: Выход!\n");
+			execvp(argv[1], &argv[1])
+			exit(3);
   default:
           printf("PARENT: Это процесс-родитель!\n");    // Это код родительского процесса
           wait(&rv);    // ожидание завершения потомка
