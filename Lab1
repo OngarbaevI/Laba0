@@ -29,10 +29,6 @@ int main(void)
         }    
     }
 
-    for (int i = 0; i < stringCounter; i++)
-    {
-        printf("%d\n", stringBeginPos[i]);
-    }
     int choosenString = 1;
     while (true)
     {
