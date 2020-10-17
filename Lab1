@@ -6,39 +6,32 @@
 int main(void)
 {
     int fd; // 
-    fd=open("textfile.txt", O_RDONLY);
-
+    fd=open("test.txt", O_RDONLY); 
     int charNum = lseek(fd, 0, SEEK_END);
     lseek (fd, 0, SEEK_SET);
     char buf[charNum];
     read(fd, buf, charNum);
     int stringCounter = 0;
-    for (int counter = 0; counter < charNum; counter++)
+    for (int i = 0; i < charNum; i++)
     {
-        if (buf[counter]=='\n')
+        if (buf[i]=='\n')
             stringCounter++;
-        printf("%c", buf[counter]);
+        printf("%c", buf[i]);
     }
-
-    int t = 1;
     int stringBeginPos[stringCounter];
     stringBeginPos[0] = 0;
     int localStringCounter = 1;
-    
-    for (int counter=0; counter < charNum; counter++)
+    for (int i=0; i < charNum; i++)
     {
-        if ((buf[counter]=='\n')  )
+        if ((buf[i]=='\n')  )
         {
-            
-            stringBeginPos[localStringCounter++] = counter + 1;
-        
-            
+            stringBeginPos[localStringCounter++] = i + 1;
         }    
     }
 
-    for (int counter = 0; counter < stringCounter; counter++)
+    for (int i = 0; i < stringCounter; i++)
     {
-        printf("%d\n", stringBeginPos[counter]);
+        printf("%d\n", stringBeginPos[i]);
     }
     int choosenString = 1;
     while (true)
