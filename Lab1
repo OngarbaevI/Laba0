@@ -7,6 +7,10 @@ int main(void)
 {
     int fd; // 
     fd=open("test.txt", O_RDONLY); 
+     if(fd==-1) {
+        printf("Невозможно открыть файл\n");
+        exit(1);
+    }
     int charNum = lseek(fd, 0, SEEK_END);
     lseek (fd, 0, SEEK_SET);
     char buf[charNum];
@@ -30,9 +34,17 @@ int main(void)
     }
 
     int choosenString = 1;
-    while (true)
+    while (0==0)
     {
+    
         scanf("%d", &choosenString);
+        if (choosenString == 0)
+            break;
+        if (choosenString > stringCounter)
+        {
+            printf("Слишком большое значение");
+            continue;
+        }
         for (int counter = stringBeginPos[choosenString-1]; buf[counter]!='\n'; counter++)
             printf("%c", buf[counter]);
     }
