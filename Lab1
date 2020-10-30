@@ -5,7 +5,7 @@
 #include <malloc.h>
 int main(void)
 {
-    int fd; // 
+    int fd; 
     fd=open("test.txt", O_RDONLY); 
      if(fd==-1) {
         printf("Невозможно открыть файл\n");
